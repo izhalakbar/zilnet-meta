@@ -6,7 +6,7 @@ mode: rule
 allow-lan: true
 unified-delay: true
 bind-address: "*"
-log-level: info
+log-level: silent
 ipv6: false
 geodata-mode: true
 external-controller: 0.0.0.0:9090
@@ -288,7 +288,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
     interval: 86400
 rules:
-  - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
   - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
   - IP-CIDR6,::1/128,REJECT,no-resolve
   - RULE-SET,RP-Direct,DIRECT
