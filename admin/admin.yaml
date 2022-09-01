@@ -210,7 +210,10 @@ proxies:
     udp: true
 proxy-groups:
   - name: 🐌 KEONG-RACUN 
-    type: select
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
     proxies:
     - 🍜INDO-MIE 
     - 🍜MIE-SEDAP 
