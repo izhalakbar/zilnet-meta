@@ -59,15 +59,15 @@ BUG NYA:
   - &bugip 104.17.2.81
   - &bughost api.midtrans.com
 PATH:
-  - &path1 wss://api.midtrans.com/fastssh/ras1/63109b844b32e/
-  - &path2 wss://api.midtrans.com/fastssh/ras2/63109bc8c5bd5/
-  - &path3 wss://api.midtrans.com/fastssh/ras3/63109c0c3c68f/
-  - &path4 wss://api.midtrans.com/fastssh/res4/63109c545d10d/
-  - &path5 wss://api.midtrans.com/fastssh/res5/63109cbb5fff7/
-  - &path6 wss://api.midtrans.com/fastssh/res6/63109d0ac1a9b/
-  - &path7 wss://api.midtrans.com/fastssh/res7/63109d5593477/
-  - &path8 wss://api.midtrans.com/fastssh/res8/63109d93adb08/
-  - &path9 wss://api.midtrans.com/fastssh/res9/63109dfab3016/
+  - &path1 wss://api.midtrans.com/fastssh/gun10/6310e4518d4e1/
+  - &path2 wss://api.midtrans.com/fastssh/gun11/6310e4b0bcf28/
+  - &path3 wss://api.midtrans.com/fastssh/gun12/6310e52d0c0e1/
+  - &path4 wss://api.midtrans.com/fastssh/gun13/6310e58216b64/
+  - &path5 wss://api.midtrans.com/fastssh/gun14/6310e5de0a74c/
+  - &path6 wss://api.midtrans.com/fastssh/gun15/6310e63623f54/
+  - &path7 wss://api.midtrans.com/fastssh/gun16/6310e686b8ed1/
+  - &path8 wss://api.midtrans.com/fastssh/gun17/6310e6ea8b1fc/
+  - &path9 wss://api.midtrans.com/fastssh/gun18/6310e750056d1/
 UUID:
   - &uuid 81f1f510-3ca7-4734-8956-0f4fce670af5
 HOST:
