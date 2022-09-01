@@ -235,20 +235,20 @@ proxy-groups:
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
-    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
   - name: 🍜MIE-SEDAP
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
-    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
   - name: 🍜SARI-MIE 
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
 rule-providers:
@@ -263,28 +263,32 @@ rule-providers:
     behavior: classical
     path: "./reject.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/reject.yaml
+    interval: 86400
   RP-Streaming:
     type: http
     behavior: classical
     path: "./streaming.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/streaming.yaml
+    interval: 86400
   RP-Sosmed:
     type: http
     behavior: classical
     path: "./sosmed.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/sosmed.yaml
+    interval: 86400
   RP-Gaming:
     type: http
     behavior: classical
     path: "./gaming.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
+    interval: 86400
 rules:
   - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
   - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
   - IP-CIDR6,::1/128,REJECT,no-resolve
   - RULE-SET,RP-Direct,DIRECT
   - RULE-SET,RP-Reject,REJECT
-  - RULE-SET,RP-Gaming,🍜SARI-MIE 
-  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
   - RULE-SET,RP-Streaming,🍜INDO-MIE
+  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
+  - RULE-SET,RP-Gaming,🍜SARI-MIE 
   - MATCH,🐌 KEONG-RACUN
