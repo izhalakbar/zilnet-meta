@@ -215,9 +215,6 @@ proxy-groups:
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
-    - 🍜INDO-MIE
-    - 🍜MIE-SEDAP
-    - 🍜SARI-MIE
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
     - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
