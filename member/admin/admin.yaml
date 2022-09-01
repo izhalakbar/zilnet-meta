@@ -6,7 +6,7 @@ mode: rule
 allow-lan: true
 unified-delay: true
 bind-address: "*"
-log-level: silent
+log-level: info
 ipv6: false
 geodata-mode: true
 external-controller: 0.0.0.0:9090
