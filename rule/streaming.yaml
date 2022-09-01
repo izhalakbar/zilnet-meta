@@ -8,6 +8,12 @@ payload:
   - IP-CIDR,74.125.24.188/16
   - IP-CIDR,172.217.194.188/16
   - IP-CIDR,142.250.4.188/16
+  #Porn
+  - DOMAIN-SUFFIX,xvideos.com
+  - DOMAIN-SUFFIX,pornhub.com
+  - DOMAIN-SUFFIX,xxxtube2022.com
+  - DOMAIN-SUFFIX,xxxtik.com
+  ssss
   # Youtube
   - DOMAIN,youtubei.googleapis.com
   - DOMAIN,yt3.ggpht.com
