@@ -59,19 +59,27 @@ BUG NYA:
   - &bugip 104.17.2.81
   - &bughost api.midtrans.com
 PATH:
-  - &path1 wss://api.midtrans.com/fastssh/ras1/63109b844b32e/
-  - &path2 wss://api.midtrans.com/fastssh/ras2/63109bc8c5bd5/
-  - &path3 wss://api.midtrans.com/fastssh/ras3/63109c0c3c68f/
-  - &path4 wss://api.midtrans.com/fastssh/res4/63109c545d10d/
-  - &path5 wss://api.midtrans.com/fastssh/res5/63109cbb5fff7/
-  - &path6 wss://api.midtrans.com/fastssh/res6/63109d0ac1a9b/
-  - &path7 wss://api.midtrans.com/fastssh/res7/63109d5593477/
-  - &path8 wss://api.midtrans.com/fastssh/res8/63109d93adb08/
-  - &path9 wss://api.midtrans.com/fastssh/res9/63109dfab3016/
+  - &path1 wss://api.midtrans.com/fastssh/zill/63107fbf6f302/
+  - &path2 wss://api.midtrans.com/fastssh/zil2/63107a797d217/
+  - &path3 wss://api.midtrans.com/fastssh/zil3/63107b6080cb0/
+  - &path4 wss://api.midtrans.com/fastssh/zil4/63107c7055b55/
+  - &path5 wss://api.midtrans.com/fastssh/zil5/63107ce96166a/
+  - &path6 wss://api.midtrans.com/fastssh/zil6/63107db90c348/
+  - &path7 wss://api.midtrans.com/fastssh/zil7/63107e112757b/
+  - &path8 wss://api.midtrans.com/fastssh/zil8/63107e56a95f0/
+  - &path9 wss://api.midtrans.com/fastssh/zil9/63107eae579f4/
 UUID:
   - &uuid 81f1f510-3ca7-4734-8956-0f4fce670af5
 HOST:
-  - &host sg1.vless.co
+  - &host1 sg1.vless.co
+  - &host2 id-1.vless.co
+  - &host3 id-1.vless.co
+  - &host4 id-2.vless.co
+  - &host5 id-2.vless.co
+  - &host6 sg1.vless.co
+  - &host7 sg1.vless.co
+  - &host8 sg1.vless.co
+  - &host9 sg1.vless.co
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
     server: *bugip
@@ -86,7 +94,7 @@ proxies:
     ws-opts:
       path: *path1
       headers:
-        Host: *host
+        Host: *host1
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
     server: *bugip
@@ -101,7 +109,7 @@ proxies:
     ws-opts:
       path: *path2
       headers:
-        Host: *host
+        Host: *host2
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
     server: *bugip
@@ -116,7 +124,7 @@ proxies:
     ws-opts:
       path: *path3
       headers:
-        Host: *host
+        Host: *host3
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
     server: *bugip
@@ -131,7 +139,7 @@ proxies:
     ws-opts:
       path: *path4
       headers:
-        Host: *host
+        Host: *host4
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
     server: *bugip
@@ -146,7 +154,7 @@ proxies:
     ws-opts:
       path: *path5
       headers:
-        Host: *host
+        Host: *host5
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
     server: *bugip
@@ -161,7 +169,7 @@ proxies:
     ws-opts:
       path: *path6
       headers:
-        Host: *host
+        Host: *host6
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
     server: *bugip
@@ -176,7 +184,7 @@ proxies:
     ws-opts:
       path: *path7
       headers:
-        Host: *host
+        Host: *host7
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
     server: *bugip
@@ -189,9 +197,9 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path8
+      path: *path9
       headers:
-        Host: *host
+        Host: *host8
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
     server: *bugip
@@ -206,7 +214,7 @@ proxies:
     ws-opts:
       path: *path9
       headers:
-        Host: *host
+        Host: *host9
     udp: true
 proxy-groups:
   - name: 🐌 KEONG-RACUN 
