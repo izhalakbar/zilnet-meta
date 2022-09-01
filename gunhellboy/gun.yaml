@@ -71,7 +71,7 @@ PATH:
 UUID:
   - &uuid 81f1f510-3ca7-4734-8956-0f4fce670af5
 HOST:
-  - &host sg1.vless.co
+  - &host sg2.vless.co
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
     server: *bugip
