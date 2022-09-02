@@ -6,3 +6,7 @@ payload:
   - DOMAIN-SUFFIX,pornhub.com
   - DOMAIN-SUFFIX,xxxtube2022.com
   - DOMAIN-SUFFIX,xxxtik.com
+
+  # SSH
+  - DOMAIN-SUFFIX,.fastssh.com
+  - DOMAIN-SUFFIX,.howdy.com
