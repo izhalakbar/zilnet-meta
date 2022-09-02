@@ -302,12 +302,6 @@ rule-providers:
     interval: 86400
 rules:
   - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
-  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
   - IP-CIDR6,::1/128,REJECT,no-resolve
-  - RULE-SET,RP-Direct,DIRECT
-  - RULE-SET,RP-Reject,REJECT
-  - RULE-SET,RP-Streaming,🍜INDO-MIE
-  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
-  - RULE-SET,RP-Gaming,🍜SARI-MIE
   - MATCH,🐌 KEONG-RACUN
 
