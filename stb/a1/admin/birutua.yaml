@@ -1,0 +1,282 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+mode: rule
+allow-lan: true
+unified-delay: true
+bind-address: "*"
+log-level: silent
+ipv6: false
+geodata-mode: true
+external-controller: 0.0.0.0:9090
+external-ui: dashboard/dist
+tcp-concurrent: false
+interface-name: ""
+enable-process: false
+geodata-loader: memconservative
+inbound-tfo: false
+secret: ""
+profile:
+  store-selected: true
+  store-fake-ip: false
+# geox-url: {mmdb: https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb, geoip: https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat, geosite: https://github.com/taamarin/v2ray-rules-dat/raw/release/geosite.dat}
+experimental: {sniff-tls-sni: true, fingerprint: ""}
+tun:
+  enable: false
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: false
+  auto-detect-interface: false
+sniffer:
+  enable: false
+  sniffing: [tls, http]
+  force-domain: [+]
+  skip-domain: [+.google.com]
+  port-whitelist: [443, 80]
+dns:
+  enable: true
+  device: Meta
+  ipv6: false
+  prefer-h3: false
+  default-nameserver: [1.1.1.1, 9.9.9.9]
+  listen: 0.0.0.0:1053
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: ["*.local", "*.localhost", dns.*, dns.*.*, "*.twilio.com", "*.*.twilio.com"]
+  nameserver: [8.8.8.8, 94.140.14.14, 149.112.112.112]
+  fallback: []
+  fallback-filter:
+    geoip: false
+    geoip-code: ID
+    geosite: []
+    ipcidr: []
+    domain: []
+tproxy-port: 9898
+BUG NYA:
+  - &bugip 104.18.3.2
+  - &bughost ruangguru.com
+PATH:
+  - &path1 wss://ruangguru.com/websocket
+UUID:
+  - &uuid1 9da637e4-6de5-489d-9bba-2ec0a817e5bc
+  - &uuid2 2a851e3e-0e00-48bd-8c70-19eb9b47bc2f
+  - &uuid3 bece8f1c-25bb-4a10-99fb-32b9a0176f06
+  - &uuid4 f6cd705f-f524-4d7b-ba1c-1563d71aa047
+  - &uuid5 9efa851c-e1a3-42d0-9c4c-670d1a11bc0b
+  - &uuid6 c85c6778-1a9e-4134-9e96-2034778cf034
+  - &uuid7 0b82db93-bdce-468f-9709-d90d461c8c5c
+  - &uuid8 88356a73-3d3c-4c15-a995-1ea1cff66a7a
+  - &uuid9 32ffbd6a-d908-4efb-bdd5-f0e158ca8b89
+HOST:
+  - &host1 sgovh1-ws.xvless.xyz
+  - &host2 sg1-ws.xvless.xyz
+  - &host3 sg2-ws.xvless.xyz 
+  - &host4 sg3-ws.xvless.xyz 
+  - &host5 sg4-ws.xvless.xyz 
+  - &host6 sg5-ws.xvless.xyz 
+  - &host7 sg6-ws.xvless.xyz 
+  - &host8 sg7-ws.xvless.xyz 
+  - &host9 sg8-ws.xvless.xyz 
+proxies:
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid1
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host1
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid2
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host2
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid3
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host3
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host4
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid5
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host5
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid6
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host6
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid7
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host7
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid8
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host8
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
+    server: *bugip
+    port: 443
+    type: vless
+    uuid: *uuid9
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path1
+      headers:
+        Host: *host9
+    udp: true
+proxy-groups:
+  - name: 🐌 KEONG-RACUN 
+    type: select
+    proxies:
+    - 🍜INDO-MIE 
+    - 🍜MIE-SEDAP 
+    - 🍜SARI-MIE 
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
+  - name: 🍜INDO-MIE 
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    ninterval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
+  - name: 🍜MIE-SEDAP
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
+  - name: 🍜SARI-MIE 
+    type: fallback
+    strategy: consistent-hashing
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 7
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 8
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 9
+rules:
+  - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
+  - IP-CIDR6,::1/128,REJECT,no-resolve
+  - MATCH,🐌 KEONG-RACUN 
