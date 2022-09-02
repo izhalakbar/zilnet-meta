@@ -1,12 +1,12 @@
 payload:
-  # Hotstar
-  - IP-CIDR,192.168.1.1/24
   # Porn
   - DOMAIN-SUFFIX,xvideos.com
   - DOMAIN-SUFFIX,pornhub.com
   - DOMAIN-SUFFIX,xxxtube2022.com
   - DOMAIN-SUFFIX,xxxtik.com
-
-  # SSH
+  # Google
   - DOMAIN-SUFFIX,fastssh.com
-  - DOMAIN-SUFFIX,howdy.com
+  - DOMAIN-SUFFIX,howdy.id
+  - DOMAIN-SUFFIX,top10vpn.com
+  # Hotstar
+  - IP-CIDR,192.168.1.1/24
