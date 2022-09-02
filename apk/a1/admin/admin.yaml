@@ -79,7 +79,7 @@ HOST:
   - &host6 sg1-ws.xvless.xyz
   - &host7 sg1-ws.xvless.xyz
   - &host8 sg2-ws.xvless.xyz
-  - &host8 sg2-ws.xvless.xyz
+  - &host9 sg2-ws.xvless.xyz
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
     server: *bugip
@@ -107,7 +107,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path2
+      path: *path
       headers:
         Host: *host2
     udp: true
@@ -122,7 +122,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path3
+      path: *path
       headers:
         Host: *host3
     udp: true
@@ -137,7 +137,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path4
+      path: *path
       headers:
         Host: *host4
     udp: true
@@ -152,7 +152,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path5
+      path: *path
       headers:
         Host: *host5
     udp: true
@@ -167,7 +167,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path6
+      path: *path
       headers:
         Host: *host6
     udp: true
@@ -182,7 +182,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path7
+      path: *path
       headers:
         Host: *host7
     udp: true
@@ -197,7 +197,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path8
+      path: *path
       headers:
         Host: *host8
     udp: true
@@ -212,7 +212,7 @@ proxies:
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path9
+      path: *path
       headers:
         Host: *host9
     udp: true
@@ -297,4 +297,3 @@ rules:
   - RULE-SET,RP-Gaming,🍜SARI-MIE
   - MATCH,🐌 KEONG-RACUN
   #- MATCH,GLOBAL
-  
