@@ -66,8 +66,8 @@ PATH:
   - &path5 wss://api.midtrans.com/fastssh/putri5/6312023d65091/
   - &path6 wss://api.midtrans.com/fastssh/putri6/631202ab49db1/
   - &path7 wss://api.midtrans.com/fastssh/putri7/631203088a208/
-  - &path8 wss://api.midtrans.com/fastssh/gun17/6310e6ea8b1fc/
-  - &path9 wss://api.midtrans.com/fastssh/gun18/6310e750056d1/
+  - &path8 wss://api.midtrans.com/fastssh/putri8/631206ca2e520/
+  - &path9 wss://api.midtrans.com/fastssh/putri9/631207753ddbd/
 UUID:
   - &uuid 81f1f510-3ca7-4734-8956-0f4fce670af5
 HOST:
