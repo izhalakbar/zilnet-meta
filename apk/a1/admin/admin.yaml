@@ -59,40 +59,40 @@ BUG NYA:
   - &bugip 104.17.2.81
   - &bughost api.midtrans.com
 PATH:
-  - &path1 wss://api.midtrans.com/fastssh/zill/63107fbf6f302/
-  - &path2 wss://api.midtrans.com/fastssh/zil2/63107a797d217/
-  - &path3 wss://api.midtrans.com/fastssh/zil3/63107b6080cb0/
-  - &path4 wss://api.midtrans.com/fastssh/zil4/63107c7055b55/
-  - &path5 wss://api.midtrans.com/fastssh/zil5/63107ce96166a/
-  - &path6 wss://api.midtrans.com/fastssh/zil6/63107db90c348/
-  - &path7 wss://api.midtrans.com/fastssh/zil7/63107e112757b/
-  - &path8 wss://api.midtrans.com/fastssh/zil8/63107e56a95f0/
-  - &path9 wss://api.midtrans.com/fastssh/zil9/63107eae579f4/
+  - &path wss://api.midtrans.com/websocket
 UUID:
-  - &uuid 81f1f510-3ca7-4734-8956-0f4fce670af5
+  - &uuid1 28493f07-a216-4bc5-a111-0ad403f32fec
+  - &uuid2 00c69400-09dd-4e09-8654-79235f2b4acb
+  - &uuid3 7fdc4d29-e280-4e0d-87de-cc3e688654e4
+  - &uuid4 92bf9172-4581-41e9-9352-36a9edeb9510
+  - &uuid5 8fea1a8f-575b-4eaa-be31-b944d8f090b5
+  - &uuid6 d00d4836-8415-4125-8cfc-8c19435f2888
+  - &uuid7 2fc77703-cf98-443c-8a07-febb10ab3cd3
+  - &uuid8 61ffb76f-9a76-480a-855d-ff1b456a7ec4
+  - &uuid9 e5ca3740-1e45-4835-808f-c66b430a9221
 HOST:
-  - &host1 sg1.vless.co
-  - &host2 id-1.vless.co
-  - &host3 id-1.vless.co
-  - &host4 id-2.vless.co
-  - &host5 id-2.vless.co
-  - &host6 sg1.vless.co
-  - &host7 sg1.vless.co
-  - &host8 sg1.vless.co
-  - &host9 sg1.vless.co
+  - &host1 sg2-ctb-ws.xvless.xyz
+  - &host2 sgovh1-ws.xvless.xyz
+  - &host3 sgovh1-ws.xvless.xyz
+  - &host4 sgovh1-ws.xvless.xyz
+  - &host5 sg1-ws.xvless.xyz
+  - &host6 sg1-ws.xvless.xyz
+  - &host7 sg1-ws.xvless.xyz
+  - &host8 sg2-ws.xvless.xyz
+  - &host8 sg2-ws.xvless.xyz
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid1
     cipher: auto
     tls: true
     skip-cert-verify: true
     servername: *bughost
     network: ws
     ws-opts:
-      path: *path1
+      path: *path
       headers:
         Host: *host1
     udp: true
@@ -100,7 +100,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid2
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -115,7 +115,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid3
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -130,7 +130,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid4
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -145,7 +145,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid5
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -160,7 +160,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid6
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -175,7 +175,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid7
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -190,7 +190,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid8
     cipher: auto
     tls: true
     skip-cert-verify: true
@@ -205,7 +205,7 @@ proxies:
     server: *bugip
     port: 443
     type: vless
-    uuid: *uuid
+    uuid: *uuid9
     cipher: auto
     tls: true
     skip-cert-verify: true
