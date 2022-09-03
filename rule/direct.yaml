@@ -1,3 +1,12 @@
 payload:
   # Hotstar
   - IP-CIDR,192.168.1.1/24
+  #Fastssh
+  - IP-CIDR,172.67.208.0/20
+  #Howdy
+  - IP-CIDR,104.21.32.0/20
+  #Top10Vpn
+  - IP-CIDR,151.101.0.0/22
+  #whatismyipaddress
+  - IP-CIDR,104.16.144.0/20
+  
