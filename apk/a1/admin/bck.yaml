@@ -56,7 +56,7 @@ dns:
     domain: []
 tproxy-port: 9898
 BUG NYA:
-  - &bugip 104.17.2.81
+  - &bugip 104.17.3.81
   - &bughost api.midtrans.com
 PATH:
   - &path1 wss://api.midtrans.com/fastssh/zill/63107fbf6f302/
