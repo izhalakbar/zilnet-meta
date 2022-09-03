@@ -82,7 +82,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_2
     server: *host
     port: 443
     type: vless
@@ -97,7 +97,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_3
     server: *host
     port: 443
     type: vless
