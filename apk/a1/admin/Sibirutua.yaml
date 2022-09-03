@@ -56,7 +56,7 @@ dns:
     domain: []
 tproxy-port: 9898
 BUG NYA:
-  - &bugip 51.79.241.202
+  - &bugip 172.217.19.67
   - &bughost alt20.maps.gstatic.com
 PATH:
   - &path wss://alt20.maps.gstatic.com/websocket
