@@ -58,6 +58,7 @@ tproxy-port: 9898
 BUG NYA:
   - &bugip 172.217.19.67
   - &bughost alt20.maps.gstatic.com
+  - &bughs alt20.maps.gstatic.com
 PATH:
   - &path wss://alt20.maps.gstatic.com/websocket
 UUID:
@@ -68,7 +69,7 @@ HOST:
   - &host sg7-ws.xvless.xyz
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
-    server: *bughost
+    server: *bughs
     port: 443
     type: vless
     uuid: *uuid1
@@ -83,7 +84,7 @@ proxies:
         Host: *host
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_2
-    server: *bughost
+    server: *bughs
     port: 443
     type: vless
     uuid: *uuid2
@@ -98,7 +99,7 @@ proxies:
         Host: *host
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_3
-    server: *bughost
+    server: *bughs
     port: 443
     type: vless
     uuid: *uuid3
