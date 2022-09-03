@@ -11,8 +11,5 @@ payload:
   - IP-CIDR,104.16.144.0/20
   #xvideos.com
   - IP-CIDR,185.88.180.0/22
-  - IP-CIDR,185.88.181.1
-  - IP-CIDR,185.88.181.2
-  - IP-CIDR,185.88.181.3
-  - IP-CIDR,185.88.181.4
-  
+  #Pornhub.com
+  - IP-CIDR,66.254.114.0/24
