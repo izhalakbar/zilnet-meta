@@ -56,12 +56,11 @@ dns:
     domain: []
 tproxy-port: 9898
 BUG NYA:
-  - &bugip 172.217.19.67
+  - &bugip sg2.vless.co
   - &bughost alt20.maps.gstatic.com
-  - &host sg2.vless.co
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
-    server: *host
+    server: *bugip
     port: 443
     type: vless
     uuid: eb6ddd47-74e0-4294-a18d-0540aab441c0
