@@ -59,7 +59,7 @@ BUG NYA:
   - &bugip 104.17.2.81
   - &bughost api.midtrans.com
 PATH:
-  - &path1 wss://api.midtrans.com/websocket
+  - &path wss://api.midtrans.com/websocket
 UUID:
   - &uuid1 e083b20d-daff-4062-8afd-007de71083a7
   - &uuid2 42647550-3121-4390-9e1f-4ef7589c6ca8
