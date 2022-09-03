@@ -1,0 +1,107 @@
+---
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: ""
+bind-address: "*"
+profile:
+  store-selected: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  nameserver:
+    - 8.8.8.8
+    - 1.0.0.1
+    - https://dns.google/dns-query
+  fallback:
+    - 1.1.1.1
+    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+    - 112.215.203.254
+  default-nameserver:
+    - 8.8.8.8
+    - 1.1.1.1
+    - 112.215.203.254
+proxies:
+  - name: Vlesssg1
+    server: sg2.vless.co
+    port: 443
+    type: vless
+    uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: alt20.maps.gstatic.com
+    network: ws
+    ws-opts:
+      path: wss://alt20.maps.gstatic.com/fastssh/tes1/630a50d5a63b5/
+      headers:
+        Host: sg2.vless.co
+    udp: true
+  - name: Vlesssg2
+    server: sg2.vless.co
+    port: 443
+    type: vless
+    uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 149karaokeclub.com
+    network: ws
+    ws-opts:
+      path: wss://149karaokeclub.com/fastssh/tes2/630a51b598cb4/
+      headers:
+        Host: sg2.vless.co
+    udp: true
+  - name: Vlesssg3
+    server: sg2.vless.co
+    port: 443
+    type: vless
+    uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: 360kidsacademy.com
+    network: ws
+    ws-opts:
+      path: wss://360kidsacademy.com/fastssh/tes3/630a532fd8dc1/
+      headers:
+        Host: sg2.vless.co
+    udp: true
+  - name: Vlesssg4
+    server: sg2.vless.co
+    port: 443
+    type: vless
+    uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: advito.com
+    network: ws
+    ws-opts:
+      path: wss://advito.com/fastssh/tes3/630a532fd8dc1/
+      headers:
+        Host: sg2.vless.co
+    udp: true
+proxy-groups:
+  - name: MULTIAKUN
+    type: select
+    disable-udp: false
+    proxies:
+    - Vlesssg1
+    - Vlesssg2
+    - Vlesssg3
+    - Vlesssg4
+    url: http://www.gstatic.com/generate_204
+unified-delay: true
+rules:
+  - MATCH,MULTIAKUN
