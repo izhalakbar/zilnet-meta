@@ -140,8 +140,7 @@ proxy-groups:
     type: select
     proxies:
     - 𝙊𝙩𝙖𝙢𝙖 | akun_3
-    filter: 
-    '𝙊𝙩𝙖𝙢𝙖 | akun_3'
+    filter: '𝙊𝙩𝙖𝙢𝙖 | akun_3'
 rule-providers:
   RP-Direct:
     type: http
