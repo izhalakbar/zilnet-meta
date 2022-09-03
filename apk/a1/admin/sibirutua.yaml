@@ -56,126 +56,56 @@ dns:
     domain: []
 tproxy-port: 9898
 BUG NYA:
-  - &bugip 104.17.3.81
-  - &bughost api.midtrans.com
+  - &bugip 51.79.241.202
+  - &bughost alt20.maps.gstatic.com
 PATH:
-  - &path wss://api.midtrans.com/howdy
+  - &path wss://alt20.maps.gstatic.com/websocket
 UUID:
-  - &uuid 11349c60-2b63-11ed-9c18-1239d0255272
+  - &uuid1 eb6ddd47-74e0-4294-a18d-0540aab441c0
+  - &uuid2 00f67161-db8c-4f75-b091-9c8a32fb04e8
+  - &uuid3 00f67161-db8c-4f75-b091-9c8a32fb04e8
 HOST:
-  - &host sg3-trojan.bonds.id
+  - &host sg7-ws.xvless.xyz
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
-    server: *bugip
+    server: *host
     port: 443
-    type: trojan
-    password: *uuid
+    type: vless
+    uuid: *uuid1
+    cipher: auto
+    tls: true
     skip-cert-verify: true
-    sni: *bughost
+    servername: *bughost
     network: ws
     ws-opts:
       path: *path
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_2
-    server: *bugip
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
+    server: *host
     port: 443
-    type: trojan
-    password: *uuid
+    type: vless
+    uuid: *uuid2
+    cipher: auto
+    tls: true
     skip-cert-verify: true
-    sni: *bughost
+    servername: *bughost
     network: ws
     ws-opts:
       path: *path
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_3
-    server: *bugip
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
+    server: *host
     port: 443
-    type: trojan
-    password: *uuid
+    type: vless
+    uuid: *uuid3
+    cipher: auto
+    tls: true
     skip-cert-verify: true
-    sni: *bughost
-    network: ws
-    ws-opts:
-      path: *path
-      headers:
-        Host: *host
-    udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_4
-    server: *bugip
-    port: 443
-    type: trojan
-    password: *uuid
-    skip-cert-verify: true
-    sni: *bughost
-    network: ws
-    ws-opts:
-      path: *path
-      headers:
-        Host: *host
-    udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_5
-    server: *bugip
-    port: 443
-    type: trojan
-    password: *uuid
-    skip-cert-verify: true
-    sni: *bughost
-    network: ws
-    ws-opts:
-      path: *path
-      headers:
-        Host: *host
-    udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_6
-    server: *bugip
-    port: 443
-    type: trojan
-    password: *uuid
-    skip-cert-verify: true
-    sni: *bughost
-    network: ws
-    ws-opts:
-      path: *path
-      headers:
-        Host: *host
-    udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_7
-    server: *bugip
-    port: 443
-    type: trojan
-    password: *uuid
-    skip-cert-verify: true
-    sni: *bughost
-    network: ws
-    ws-opts:
-      path: *path
-      headers:
-        Host: *host
-    udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_8
-    server: *bugip
-    port: 443
-    type: trojan
-    password: *uuid
-    skip-cert-verify: true
-    sni: *bughost
-    network: ws
-    ws-opts:
-      path: *path
-      headers:
-        Host: *host
-    udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_9
-    server: *bugip
-    port: 443
-    type: trojan
-    password: *uuid
-    skip-cert-verify: true
-    sni: *bughost
+    servername: *bughost
     network: ws
     ws-opts:
       path: *path
@@ -192,36 +122,24 @@ proxy-groups:
     - 𝙊𝙩𝙖𝙢𝙖 | akun_1
     - 𝙊𝙩𝙖𝙢𝙖 | akun_2
     - 𝙊𝙩𝙖𝙢𝙖 | akun_3
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_4
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_5
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_6
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_7
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_8
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_9
   - name: 🍜INDO-MIE
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     ninterval: 100
     proxies:
     - 𝙊𝙩𝙖𝙢𝙖 | akun_1
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_2
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_3
   - name: 🍜MIE-SEDAP
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_4
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_5
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_6
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_2
   - name: 🍜SARI-MIE
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_7
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_8
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_9
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_3
 rule-providers:
   RP-Direct:
     type: http
