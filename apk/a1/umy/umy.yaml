@@ -65,7 +65,7 @@ UUID:
 HOST:
   - &host sg3-trojan.bonds.id
 proxies:
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-1
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
     server: *bugip
     port: 443
     type: trojan
@@ -78,7 +78,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-2
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_2
     server: *bugip
     port: 443
     type: trojan
@@ -91,7 +91,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-3
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_3
     server: *bugip
     port: 443
     type: trojan
@@ -104,7 +104,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-4
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_4
     server: *bugip
     port: 443
     type: trojan
@@ -117,7 +117,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-5
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_5
     server: *bugip
     port: 443
     type: trojan
@@ -130,7 +130,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-6
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_6
     server: *bugip
     port: 443
     type: trojan
@@ -143,7 +143,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-7
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_7
     server: *bugip
     port: 443
     type: trojan
@@ -156,7 +156,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-8
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_8
     server: *bugip
     port: 443
     type: trojan
@@ -169,7 +169,7 @@ proxies:
       headers:
         Host: *host
     udp: true
-  - name: 𝙊𝙩𝙖𝙢𝙖 | akun-9
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_9
     server: *bugip
     port: 443
     type: trojan
