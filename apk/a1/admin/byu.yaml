@@ -68,7 +68,7 @@ HOST:
   - &host sg7-ws.xvless.xyz
 proxies:
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
-    server: *bughs
+    server: *bugip
     port: 443
     type: vless
     uuid: *uuid1
@@ -83,7 +83,7 @@ proxies:
         Host: *host
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_2
-    server: *bughs
+    server: *bugip
     port: 443
     type: vless
     uuid: *uuid2
@@ -98,7 +98,7 @@ proxies:
         Host: *host
     udp: true
   - name: 𝙊𝙩𝙖𝙢𝙖 | akun_3
-    server: *bughs
+    server: *bugip
     port: 443
     type: vless
     uuid: *uuid3
