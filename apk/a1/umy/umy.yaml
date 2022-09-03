@@ -183,69 +183,82 @@ proxies:
         Host: *host
     udp: true
 proxy-groups:
-  - name: 🐌 KEONG-RACUN
+  - name: 🐌 KEONG-RACUN 
     type: load-balance
     strategy: consistent-hashing
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
-    - 🍜INDO-MIE
-    - 🍜MIE-SEDAP
-    - 🍜SARI-MIE
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-1
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-2
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-3
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-4
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-5
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-6
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-7
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-8
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-9
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_1
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_2
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_3
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_4
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_5
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_6
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_7
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_8
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_9
   - name: 🍜INDO-MIE
     type: url-test
     url: http://cp.cloudflare.com/generate_204
     ninterval: 100
     proxies:
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-1
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-2
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-3
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-4
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-5
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-6
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-7
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-8
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-9
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_1
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_2
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_3
   - name: 🍜MIE-SEDAP
-    type: load-balance
-    strategy: consistent-hashing
+    type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-1
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-2
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-3
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-4
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-5
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-6
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-7
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-8
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-9
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_4
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_5
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_6
   - name: 🍜SARI-MIE
-    type: fallback
-    strategy: consistent-hashing
+    type: url-test
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-1
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-2
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-3
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-4
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-5
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-6
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-7
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-8
-    -  𝙊𝙩𝙖𝙢𝙖 | akun-9
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_7
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_8
+    - 𝙊𝙩𝙖𝙢𝙖 | Akun_9
+rule-providers:
+  RP-Direct:
+    type: http
+    behavior: classical
+    path: "./direct.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/direct.yaml
+    interval: 86400
+  RP-Reject:
+    type: http
+    behavior: classical
+    path: "./reject.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/reject.yaml
+    interval: 86400
+  RP-Streaming:
+    type: http
+    behavior: classical
+    path: "./streaming.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/streaming.yaml
+    interval: 86400
+  RP-Sosmed:
+    type: http
+    behavior: classical
+    path: "./sosmed.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/sosmed.yaml
+    interval: 86400
+  RP-Gaming:
+    type: http
+    behavior: classical
+    path: "./gaming.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
+    interval: 86400
 rules:
   - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
   - IP-CIDR6,::1/128,REJECT,no-resolve
+  - RULE-SET,RP-Direct,DIRECT
+  - RULE-SET,RP-Reject,REJECT
+  - RULE-SET,RP-Streaming,🍜INDO-MIE
+  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
+  - RULE-SET,RP-Gaming,🍜SARI-MIE
   - MATCH,🐌 KEONG-RACUN
