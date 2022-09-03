@@ -60,7 +60,7 @@ proxies:
     server: sg2.vless.co
     port: 443
     type: vless
-    uuid: 81f1f510-3ca7-4734-8956-0f4fce670af5
+    uuid: eb6ddd47-74e0-4294-a18d-0540aab441c0
     cipher: auto
     tls: true
     skip-cert-verify: true
