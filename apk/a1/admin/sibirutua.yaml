@@ -1,0 +1,182 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+mode: rule
+allow-lan: true
+unified-delay: true
+bind-address: "*"
+log-level: silent
+ipv6: false
+geodata-mode: true
+external-controller: 0.0.0.0:9090
+external-ui: dashboard/dist
+tcp-concurrent: false
+interface-name: ""
+enable-process: false
+geodata-loader: memconservative
+inbound-tfo: false
+secret: ""
+profile:
+  store-selected: true
+  store-fake-ip: false
+# geox-url: {mmdb: https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb, geoip: https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat, geosite: https://github.com/taamarin/v2ray-rules-dat/raw/release/geosite.dat}
+experimental: {sniff-tls-sni: true, fingerprint: ""}
+tun:
+  enable: false
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: false
+  auto-detect-interface: false
+sniffer:
+  enable: false
+  sniffing: [tls, http]
+  force-domain: [+]
+  skip-domain: [+.google.com]
+  port-whitelist: [443, 80]
+dns:
+  enable: true
+  device: Meta
+  ipv6: false
+  prefer-h3: false
+  default-nameserver: [1.1.1.1, 9.9.9.9]
+  listen: 0.0.0.0:1053
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: ["*.local", "*.localhost", dns.*, dns.*.*, "*.twilio.com", "*.*.twilio.com"]
+  nameserver: [8.8.8.8, 94.140.14.14, 149.112.112.112]
+  fallback: []
+  fallback-filter:
+    geoip: false
+    geoip-code: ID
+    geosite: []
+    ipcidr: []
+    domain: []
+tproxy-port: 9898
+BUG NYA:
+  - &bugip 172.217.19.67
+  - &bughost alt20.maps.gstatic.com
+PATH:
+  - &path wss://alt20.maps.gstatic.com/websocket
+UUID:
+  - &uuid1 eb6ddd47-74e0-4294-a18d-0540aab441c0
+  - &uuid2 00f67161-db8c-4f75-b091-9c8a32fb04e8
+  - &uuid3 00f67161-db8c-4f75-b091-9c8a32fb04e8
+HOST:
+  - &host sg7-ws.xvless.xyz
+proxies:
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_1
+    server: *bughost
+    port: 443
+    type: vless
+    uuid: *uuid1
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_2
+    server: *bughost
+    port: 443
+    type: vless
+    uuid: *uuid2
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | akun_3
+    server: *bughost
+    port: 443
+    type: vless
+    uuid: *uuid3
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    servername: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+proxy-groups:
+  - name: 🐌 KEONG-RACUN 
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_1
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_2
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_3
+  - name: 🍜INDO-MIE
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    ninterval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_1
+  - name: 🍜MIE-SEDAP
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_2
+  - name: 🍜SARI-MIE
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | akun_3
+rule-providers:
+  RP-Direct:
+    type: http
+    behavior: classical
+    path: "./direct.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/direct.yaml
+    interval: 86400
+  RP-Reject:
+    type: http
+    behavior: classical
+    path: "./reject.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/reject.yaml
+    interval: 86400
+  RP-Streaming:
+    type: http
+    behavior: classical
+    path: "./streaming.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/streaming.yaml
+    interval: 86400
+  RP-Sosmed:
+    type: http
+    behavior: classical
+    path: "./sosmed.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/sosmed.yaml
+    interval: 86400
+  RP-Gaming:
+    type: http
+    behavior: classical
+    path: "./gaming.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
+    interval: 86400
+rules:
+  - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
+  - IP-CIDR6,::1/128,REJECT,no-resolve
+  - RULE-SET,RP-Direct,DIRECT
+  - RULE-SET,RP-Reject,REJECT
+  - RULE-SET,RP-Streaming,🍜INDO-MIE
+  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
+  - RULE-SET,RP-Gaming,🍜SARI-MIE
+  - MATCH,🐌 KEONG-RACUN
