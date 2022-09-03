@@ -9,4 +9,6 @@ payload:
   - IP-CIDR,151.101.0.0/22
   #whatismyipaddress
   - IP-CIDR,104.16.144.0/20
+  #xvideos.com
+  - IP-CIDR,185.88.180.0/22
   
