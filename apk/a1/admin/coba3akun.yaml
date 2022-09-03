@@ -143,7 +143,7 @@ proxy-groups:
     - 𝙊𝙩𝙖𝙢𝙖 | akun_2
     - 𝙊𝙩𝙖𝙢𝙖 | akun_3
     filter:
-    - 𝙊𝙩𝙖𝙢𝙖 | akun_3
+    - '𝙊𝙩𝙖𝙢𝙖 | akun_3'
 rule-providers:
   RP-Direct:
     type: http
