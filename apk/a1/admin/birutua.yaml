@@ -1,0 +1,226 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+mode: rule
+allow-lan: true
+unified-delay: true
+bind-address: "*"
+log-level: silent
+ipv6: false
+geodata-mode: true
+external-controller: 0.0.0.0:9090
+external-ui: dashboard/dist
+tcp-concurrent: false
+interface-name: ""
+enable-process: false
+geodata-loader: memconservative
+inbound-tfo: false
+secret: ""
+profile:
+  store-selected: true
+  store-fake-ip: true
+  geox-url: {mmdb: https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb, geoip: https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat, geosite: https://github.com/taamarin/v2ray-rules-dat/raw/release/geosite.dat}
+experimental: {sniff-tls-sni: true, fingerprint: ""}
+tun:
+  enable: false
+  stack: system
+  dns-hijack:
+    - any:53
+  auto-route: false
+  auto-detect-interface: false
+sniffer:
+  enable: false
+  sniffing: [tls, http]
+  force-domain: [+]
+  skip-domain: [+.google.com]
+  port-whitelist: [443, 80]
+dns:
+  enable: true
+  device: Meta
+  ipv6: false
+  prefer-h3: false
+  default-nameserver: [1.1.1.1, 9.9.9.9]
+  listen: 0.0.0.0:1053
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter: ["*.local", "*.localhost", dns.*, dns.*.*, "*.twilio.com", "*.*.twilio.com"]
+  nameserver: [8.8.8.8, 94.140.14.14, 149.112.112.112]
+  fallback: []
+  fallback-filter:
+    geoip: false
+    geoip-code: ID
+    geosite: []
+    ipcidr: []
+    domain: []
+tproxy-port: 9898
+BUG NYA:
+  - &bugip 104.18.3.2
+  - &bughost maps.gstatic.com
+PATH:
+  - &path wss://maps.gstatic.com/howdy
+UUID:
+  - &uuid1 c2f5d540-2c63-11ed-ad4e-1239d0255272
+  - &uuid2 acada750-2c64-11ed-bf13-1239d0255272
+  - &uuid3 d998e640-2c64-11ed-84b9-1239d0255272
+  - &uuid4 0d6b80c0-2c65-11ed-84c7-1239d0255272
+  - &uuid5 239d3410-2c65-11ed-9d0c-1239d0255272
+  - &uuid6 40e36690-2c65-11ed-b4f2-1239d0255272
+HOST:
+  - &host sgovh-trojan.bonds.id
+  - &iphost 51.79.220.79
+proxies:
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    server: *iphost
+    port: 443
+    type: trojan
+    password: *uuid1
+    skip-cert-verify: true
+    sni: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    server: *iphost
+    port: 443
+    type: trojan
+    password: *uuid2
+    skip-cert-verify: true
+    sni: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    server: *iphost
+    port: 443
+    type: trojan
+    password: *uuid3
+    skip-cert-verify: true
+    sni: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    server: *iphost
+    port: 443
+    type: trojan
+    password: *uuid4
+    skip-cert-verify: true
+    sni: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    server: *iphost
+    port: 443
+    type: trojan
+    password: *uuid5
+    skip-cert-verify: true
+    sni: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+  - name: 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+    server: *iphost
+    port: 443
+    type: trojan
+    password: *uuid6
+    skip-cert-verify: true
+    sni: *bughost
+    network: ws
+    ws-opts:
+      path: *path
+      headers:
+        Host: *host
+    udp: true
+proxy-groups:
+  - name: 🐌 KEONG-RACUN 
+    type: load-balance
+    strategy: consistent-hashing
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+  - name: 🍜INDO-MIE
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    ninterval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 1
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 2
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+  - name: 🍜MIE-SEDAP
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 100
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 3
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 4
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 5
+  - name: 🍜SARI-MIE
+    type: select
+    proxies:
+    - 𝙊𝙩𝙖𝙢𝙖 | オラマ 6
+rule-providers:
+  RP-Direct:
+    type: http
+    behavior: classical
+    path: "./direct.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/direct.yaml
+    interval: 86400
+  RP-Reject:
+    type: http
+    behavior: classical
+    path: "./reject.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/reject.yaml
+    interval: 86400
+  RP-Streaming:
+    type: http
+    behavior: classical
+    path: "./streaming.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/streaming.yaml
+    interval: 86400
+  RP-Sosmed:
+    type: http
+    behavior: classical
+    path: "./sosmed.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/sosmed.yaml
+    interval: 86400
+  RP-Gaming:
+    type: http
+    behavior: classical
+    path: "./gaming.yaml"
+    url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
+    interval: 86400
+rules:
+  - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
+  - IP-CIDR6,::1/128,REJECT,no-resolve
+  - RULE-SET,RP-Direct,DIRECT
+  - RULE-SET,RP-Reject,REJECT
+  - RULE-SET,RP-Streaming,🍜INDO-MIE
+  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
+  - RULE-SET,RP-Gaming,🍜SARI-MIE
+  - MATCH,🐌 KEONG-RACUN
+  #- MATCH,GLOBAL
