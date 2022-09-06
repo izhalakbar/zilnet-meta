@@ -247,6 +247,6 @@ rules:
   - RULE-SET,RP-Gaming,PG-Gaming
   - RULE-SET,RP-Sosmed,PG-Sosmed
   - RULE-SET,RP-Streaming,LB-Streaming
-  - MATCH,LB-Universal
+  - MATCH,
 experimental:
   sniff-tls-sni: true
