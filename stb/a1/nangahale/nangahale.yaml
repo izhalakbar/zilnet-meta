@@ -1,60 +1,46 @@
+---
 port: 7890
 socks-port: 7891
 redir-port: 7892
 mixed-port: 7893
+tproxy-port: 7895
 mode: rule
 allow-lan: true
 unified-delay: true
 bind-address: "*"
-log-level: info
+log-level: silent
 ipv6: false
 geodata-mode: true
 external-controller: 0.0.0.0:9090
-external-ui: dashboard/dist
+external-ui: "/usr/share/openclash/ui"
 tcp-concurrent: false
 interface-name: ""
 enable-process: false
 geodata-loader: memconservative
 inbound-tfo: false
-secret: ""
+secret: reyre
 profile:
   store-selected: true
   store-fake-ip: true
   #geox-url: {mmdb: https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb, geoip: https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat, geosite: https://github.com/taamarin/v2ray-rules-dat/raw/release/geosite.dat}
 experimental: {sniff-tls-sni: true, fingerprint: ""}
 tun:
-  enable: false
+  enable: true
   stack: system
   dns-hijack:
-    - any:53
+    - tcp://any:53
   auto-route: false
   auto-detect-interface: false
-sniffer:
-  enable: false
-  sniffing: [tls, http]
-  force-domain: [+]
-  skip-domain: [+.google.com]
-  port-whitelist: [443, 80]
 dns:
   enable: true
-  device: Meta
   ipv6: false
-  prefer-h3: false
-  default-nameserver: [1.1.1.1, 9.9.9.9]
-  listen: 0.0.0.0:1053
-  use-hosts: true
+  default-nameserver: [192.168.9.1, 192.168.8.1, 192.168.120.21, 8.8.8.8,1.1.1.1]
+  listen: 0.0.0.0:7874
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter: ["*.local", "*.localhost", dns.*, dns.*.*, "*.twilio.com", "*.*.twilio.com"]
-  nameserver: [8.8.8.8, 94.140.14.14, 149.112.112.112]
-  fallback: []
-  fallback-filter:
-    geoip: false
-    geoip-code: ID
-    geosite: []
-    ipcidr: []
-    domain: []
-tproxy-port: 9898
+  nameserver: [192.168.8.1, 192.168.9.1, 192.168.120.21, 8.8.8.8, 1.1.1.1, dhcp://"eth1", dhcp://"usb0", https://dns.adguard.com/dns-query, https://dns.google/dns-query, tls://dns.adguard.com, tls://dns.google]
+# ================= ZILNET META ==================
 BUG NYA:
   - &bugip 162.159.130.11
   - &bughost investors.spotify.com
@@ -69,7 +55,7 @@ UUID:
   - &uuid6 5f37d791-60d5-4f87-bd52-ccf633bad23d
 HOST:
   - &host sg8-ws.xvless.xyz
-  - &iphost 51.79.243.155
+# ================= ZILNET META ==================
 proxies:
   - name: websocket_1
     server: *bugip
@@ -161,8 +147,9 @@ proxies:
       headers:
         Host: *host
     udp: true
+# ================= ZILNET META ==================
 proxy-groups:
-  - name: 🐌 KEONG-RACUN 
+  - name: LB-Universal
     type: load-balance
     strategy: consistent-hashing
     url: http://cp.cloudflare.com/generate_204
@@ -174,27 +161,43 @@ proxy-groups:
       - websocket_4
       - websocket_5
       - websocket_6
-  - name: 🍜INDO-MIE
-    type: url-test
-    url: http://cp.cloudflare.com/generate_204
-    ninterval: 100
-    proxies:
-      - websocket_1
-      - websocket_2
-      - websocket_3
-      - websocket_4
-  - name: 🍜MIE-SEDAP
-    type: url-test
+  - name: LB-Streaming
+    type: load-balance
+    strategy: consistent-hashing
     url: http://cp.cloudflare.com/generate_204
     interval: 100
     proxies:
+      - PG-Streaming_1
+      - PG-Streaming_2
+# ================= ZILNET META ==================
+  - name: PG-Streaming_1
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 100
+    tolerance: 50
+    disable-udp: false
+    proxies:
+      - websocket_1
+      - websocket_2
+  - name: PG-Streaming_2
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 100
+    tolerance: 50
+    disable-udp: false
+    proxies:
       - websocket_3
       - websocket_4
-      - websocket_5
-  - name: 🍜SARI-MIE
+# ================= ZILNET META ==================
+  - name: PG-Sosmed
     type: select
     proxies:
-    - websocket_6
+      - websocket_5
+  - name: PG-Gaming
+    type: select
+    proxies:
+      - websocket_6
+# ================= ZILNET META ==================
 rule-providers:
   RP-Direct:
     type: http
@@ -227,12 +230,14 @@ rule-providers:
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
     interval: 86400
 rules:
+  - DST-PORT,7895,REJECT
+  - DST-PORT,7892,REJECT
   - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
+  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
   - IP-CIDR6,::1/128,REJECT,no-resolve
   - RULE-SET,RP-Direct,DIRECT
   - RULE-SET,RP-Reject,REJECT
-  - RULE-SET,RP-Streaming,🍜INDO-MIE
-  - RULE-SET,RP-Sosmed,🍜MIE-SEDAP
-  - RULE-SET,RP-Gaming,🍜SARI-MIE
-  - MATCH,🐌 KEONG-RACUN
-  
+  - RULE-SET,RP-Gaming,PG-Gaming
+  - RULE-SET,RP-Sosmed,PG-Sosmed
+  - RULE-SET,RP-Streaming,LB-Streaming
+  - MATCH,LB-Universal
