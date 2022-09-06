@@ -1,45 +1,4 @@
 ---
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7893
-tproxy-port: 7895
-mode: rule
-allow-lan: true
-unified-delay: true
-bind-address: "*"
-log-level: silent
-ipv6: false
-geodata-mode: true
-external-controller: 0.0.0.0:9090
-external-ui: "/usr/share/openclash/ui"
-tcp-concurrent: false
-interface-name: ""
-enable-process: false
-geodata-loader: memconservative
-inbound-tfo: false
-secret: reyre
-profile:
-  store-selected: true
-  store-fake-ip: true
-  #geox-url: {mmdb: https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb, geoip: https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat, geosite: https://github.com/taamarin/v2ray-rules-dat/raw/release/geosite.dat}
-experimental: {sniff-tls-sni: true, fingerprint: ""}
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-    - tcp://any:53
-  auto-route: false
-  auto-detect-interface: false
-dns:
-  enable: true
-  ipv6: false
-  default-nameserver: [192.168.9.1, 192.168.8.1, 192.168.120.21, 8.8.8.8,1.1.1.1]
-  listen: 0.0.0.0:7874
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter: ["*.local", "*.localhost", dns.*, dns.*.*, "*.twilio.com", "*.*.twilio.com"]
-  nameserver: [192.168.8.1, 192.168.9.1, 192.168.120.21, 8.8.8.8, 1.1.1.1, dhcp://"eth1", dhcp://"usb0", https://dns.adguard.com/dns-query, https://dns.google/dns-query, tls://dns.adguard.com, tls://dns.google]
 # ================= ZILNET META ==================
 BUG NYA:
   - &bugip 162.159.130.11
@@ -202,42 +161,92 @@ rule-providers:
   RP-Direct:
     type: http
     behavior: classical
-    path: "./direct.yaml"
+    path: "./rule_provider/byu/direct.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/direct.yaml
     interval: 86400
   RP-Reject:
     type: http
     behavior: classical
-    path: "./reject.yaml"
+    path: "./rule_provider/byu/reject.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/reject.yaml
     interval: 86400
   RP-Streaming:
     type: http
     behavior: classical
-    path: "./streaming.yaml"
+    path: "./rule_provider/byu/streaming.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/streaming.yaml
     interval: 86400
   RP-Sosmed:
     type: http
     behavior: classical
-    path: "./sosmed.yaml"
+    path: "./rule_provider/byu/sosmed.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/sosmed.yaml
     interval: 86400
   RP-Gaming:
     type: http
     behavior: classical
-    path: "./gaming.yaml"
+    path: "./rule_provider/byu/gaming.yaml"
     url: https://raw.githubusercontent.com/izhalakbar/zilnet-meta/main/rule/gaming.yaml
     interval: 86400
+unified-delay: true
+dns:
+  nameserver:
+    - 192.168.8.1
+    - 192.168.9.1
+    - dhcp://"usb0"
+    - dhcp://"eth1"
+    - 192.168.120.21
+    - 8.8.8.8
+    - 8.8.4.4
+    - https://dns.adguard.com/dns-query
+    - https://dns.google/dns-query
+    - tls://dns.adguard.com
+    - tls://dns.google
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:7874
+  fake-ip-filter:
+    - "+.*"
+  default-nameserver:
+    - 192.168.9.1
+    - 192.168.8.1
+    - 192.168.120.21
+    - 8.8.8.8
+    - 8.8.4.4
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: reyre
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
+tun:
+  enable: true
+  stack: system
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - tcp://any:53
+profile:
+  store-selected: true
+  store-fake-ip: true
 rules:
   - DST-PORT,7895,REJECT
   - DST-PORT,7892,REJECT
-  - IP-CIDR,127.0.0.1/32,REJECT,no-resolve
   - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
-  - IP-CIDR6,::1/128,REJECT,no-resolve
   - RULE-SET,RP-Direct,DIRECT
   - RULE-SET,RP-Reject,REJECT
   - RULE-SET,RP-Gaming,PG-Gaming
   - RULE-SET,RP-Sosmed,PG-Sosmed
   - RULE-SET,RP-Streaming,LB-Streaming
   - MATCH,LB-Universal
+experimental:
+  sniff-tls-sni: true
